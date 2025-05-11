@@ -3,22 +3,29 @@ import css from "./Contact.module.css";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { BiSolidPhoneCall } from "react-icons/bi";
 
-const Contact = ({ id, name, number }) => {
+const Contact = ({ id, name, number, onDelete }) => {
   return (
-    <li className={css.contactItem} id={id}>
+    <li className={css.contactItem}>
       <div>
-        <div className={css.contactInfo} >
-        <IoPersonCircleOutline />
-        <p >{name}</p>
+        <div className={css.contactInfo}>
+          <IoPersonCircleOutline />
+          <p>{name}</p>
+        </div>
+        <div className={css.contactInfo}>
+          <BiSolidPhoneCall />
+          <p>{number}</p>
+        </div>
       </div>
-      <div className={css.contactInfo}>
-        <BiSolidPhoneCall />
-        <p>{number}</p>
-      </div>
-      </div>
-      
 
-      <button className={css.deleteBtn}>delete</button>
+      <button
+        type="button"
+        className={css.deleteBtn}
+        onClick={() => {
+          onDelete(id);
+        }}
+      >
+        delete
+      </button>
     </li>
   );
 };

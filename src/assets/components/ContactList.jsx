@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Contact from "./Contact";
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts,onDelete }) => {
   return (
     <div>
       <ul>
@@ -11,6 +11,7 @@ const ContactList = ({ contacts }) => {
             id={contact.id}
             name={contact.name}
             number={contact.number}
+            onDelete={onDelete}
           />
         ))}
       </ul>
