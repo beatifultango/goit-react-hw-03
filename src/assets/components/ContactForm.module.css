@@ -25,3 +25,9 @@
     border: transparent;
 
 }
+
+.addBtn:hover{
+    cursor: pointer;
+    background-color: blue;
+    box-shadow: 3px 3px 3px 3px rgb(9, 9, 107); 
+}
