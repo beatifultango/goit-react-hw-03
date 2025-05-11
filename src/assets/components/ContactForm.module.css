@@ -1,0 +1,27 @@
+.form{
+    border:1px solid gray;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    align-items: baseline;
+}
+
+
+.name,
+.number{
+    margin:5px;
+    width: 20%;
+
+}
+
+.addBtn{
+    margin: 20px;
+    padding: 5px;
+    width: 20%;
+    color: bisque;
+    background-color: rgb(34, 96, 167);
+    border-radius: 5px;
+    border: transparent;
+
+}

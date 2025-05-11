@@ -12,16 +12,17 @@ const App = () => {
   ]);
 
   const [search, setSearch] = useState("");
-  const filteredList = contacts.filter((contact) => {
-    contact.name.toLowerCase().includes(search.toLowerCase());
-  });
 
+  const filteredList = contacts.filter((contact) => {
+    return contact.name.toLowerCase().includes(search.toLowerCase());
+  });
+ 
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox value={search} onChange={setSearch} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={filteredList} />
     </>
   );
 };
