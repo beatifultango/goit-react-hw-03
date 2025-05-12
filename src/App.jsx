@@ -4,19 +4,17 @@ import SearchBox from "./assets/components/SearchBox";
 import ContactList from "./assets/components/ContactList";
 
 const App = () => {
-  const [contacts, setContacts] = useState([
-    { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-    { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-    { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-  ]);
+  const [contacts, setContacts] = useState(()=>{
+    const saved=localStorage.getItem("contacts");
+    return saved?JSON.parse(saved):[
+      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+    ]
+  });
 
-  useEffect(() => {
-    const savedContacts = localStorage.getItem("contacts");
-    if (savedContacts) {
-      setContacts(JSON.parse(savedContacts));
-    }
-  }, []);
+
   const [search, setSearch] = useState("");
 
   const filteredList = contacts.filter((contact) => {
@@ -32,14 +30,17 @@ const App = () => {
   console.log(contacts);
 
   const handleDelete = (deleteItem) => {
-    const updated = contacts.filter((contact) => {
-      contact.id !== deleteItem;
-      return;
-    });
+    const updated = contacts.filter((contact) => contact.id !== deleteItem);
     setContacts(updated);
-
     localStorage.setItem("contacts", JSON.stringify(updated));
+
+    console.log(deleteItem);
   };
+
+  useEffect(()=>{
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+
+  },[contacts])
 
   return (
     <>

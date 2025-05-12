@@ -19,7 +19,7 @@ const ContactForm = ({ onAddContact }) => {
       .max(20, "çok uzun!")
       .required("Required"),
     number: Yup
-      .number()
+      .string()
       .min(6, "Çok kısa!")
       
       .required("Required"),
