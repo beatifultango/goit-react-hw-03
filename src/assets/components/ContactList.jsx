@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Contact from "./Contact";
 
-const ContactList = ({ contacts,onDelete }) => {
+const ContactList = ({ contacts, onDelete }) => {
+  
   return (
     <div>
       <ul>
